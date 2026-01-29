@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-light: #1E1E1E;
+  --color-dark: #D4D4D4;
+}
+
+.accent-text {
+  @apply text-slate-400;
+}
+
+body {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
+  color: var(--color-dark);
+  background: var(--color-light);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2D2D30;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #424242;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4A4A4A;
+}
+
+/* Terminal cursor animation */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.terminal-cursor {
+  animation: blink 1s infinite;
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Auth input field styling for dark theme */
+.auth-input-field {
+  @apply w-full px-4 py-3 rounded bg-[#2D2D30] border border-gray-600 focus:border-[#569CD6] focus:ring-1 focus:ring-[#569CD6] outline-none transition-all text-white placeholder-gray-400;
+}
+
+/* Auth button styling for dark theme */
+.auth-button {
+  @apply w-full px-4 py-3 rounded bg-[#569CD6] text-white font-semibold hover:bg-[#4A90C2] transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+/* Code syntax highlighting */
+.hljs {
+  background: #2D2D30 !important;
+  color: #D4D4D4 !important;
+}
+
+/* Selection styling */
+::selection {
+  background: #569CD6;
+  color: white;
+}
+
+/* Focus styles */
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #569CD6;
+  outline-offset: 2px;
+}
